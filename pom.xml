@@ -22,13 +22,7 @@
         <java.version>1.8</java.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.maven.scm</groupId>
-            <artifactId>maven-scm-provider-gitexe</artifactId>
-            <version>1.8.1</version>
-        </dependency>
-    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -50,6 +44,5 @@
     </build>
 <scm>
     <developerConnection>scm:git:git@github.com:dholiyaasmita/spring-pet-clinic.git</developerConnection>
-
-  </scm>
+</scm>
 </project>
