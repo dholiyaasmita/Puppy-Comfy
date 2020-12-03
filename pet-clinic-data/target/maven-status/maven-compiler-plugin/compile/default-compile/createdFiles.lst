@@ -1,5 +1,5 @@
-i/am/learning/spring/springpetclinic/model/Vet.class
-i/am/learning/spring/springpetclinic/model/Owner.class
-i/am/learning/spring/springpetclinic/model/PetType.class
-i/am/learning/spring/springpetclinic/model/Pet.class
-i/am/learning/spring/springpetclinic/model/Person.class
+i/am/learning/spring/model/PetType.class
+i/am/learning/spring/model/Person.class
+i/am/learning/spring/model/Owner.class
+i/am/learning/spring/model/Pet.class
+i/am/learning/spring/model/Vet.class
