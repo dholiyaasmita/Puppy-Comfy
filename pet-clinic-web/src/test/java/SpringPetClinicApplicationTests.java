@@ -1,5 +1,3 @@
-package i.am.learning.spring.springpetclinic;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
