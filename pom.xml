@@ -42,6 +42,8 @@
 
                 <configuration>
                     <goals>install</goals>
+                    <releaseProfiles>release</releaseProfiles>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
         </plugins>
