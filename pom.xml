@@ -14,7 +14,7 @@
     </parent>
     <groupId>i.am.learning.spring</groupId>
     <artifactId>spring-pet-clinic</artifactId>
-    <version>0.0.4-SNAPSHOT</version>
+    <version>0.0.4</version>
     <name>spring-pet-clinic</name>
     <description>Spring Pet Clinic Project</description>
 
@@ -34,12 +34,13 @@
                 <version>3.0.0-M1</version>
                 <configuration>
                     <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 <scm>
     <developerConnection>scm:git:git@github.com:dholiyaasmita/spring-pet-clinic.git</developerConnection>
-
+    <tag>spring-pet-clinic-0.0.4</tag>
   </scm>
 </project>
