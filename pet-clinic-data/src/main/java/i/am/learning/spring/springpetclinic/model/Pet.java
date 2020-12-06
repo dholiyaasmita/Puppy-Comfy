@@ -3,6 +3,7 @@ package i.am.learning.spring.springpetclinic.model;
 import java.time.LocalDate;
 
 public class Pet {
+    private Long id;
     private PetType petType;
     private Owner owner;
     private LocalDate birthDate;
@@ -32,4 +33,7 @@ public class Pet {
     }
 
 
+    public Long getId() {
+        return id;
+    }
 }
