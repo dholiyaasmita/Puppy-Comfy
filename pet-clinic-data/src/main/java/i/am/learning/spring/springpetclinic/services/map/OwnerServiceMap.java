@@ -2,12 +2,22 @@ package i.am.learning.spring.springpetclinic.services.map;
 
 import i.am.learning.spring.springpetclinic.model.Owner;
 import i.am.learning.spring.springpetclinic.services.OwnerService;
+import i.am.learning.spring.springpetclinic.services.PetService;
+import i.am.learning.spring.springpetclinic.services.PetTypeService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerService {
+
+    public OwnerServiceMap(PetTypeService petTypeService, PetService petService) {
+        this.petTypeService = petTypeService;
+        this.petService = petService;
+    }
+
+    private final PetTypeService petTypeService;
+    private final PetService petService;
 
 
     @Override
@@ -22,7 +32,16 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements O
 
     @Override
     public Owner save(Owner object) {
-        return super.save(object);
+
+        if (object != null){
+            if (object.getPets() != null){
+                object.getPets();
+            }
+            return super.save(object);
+        }else{
+            return null;
+        }
+
     }
 
     @Override
