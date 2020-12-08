@@ -1,6 +1,7 @@
 package i.am.learning.spring.springpetclinic.services.map;
 
 import i.am.learning.spring.springpetclinic.model.Owner;
+import i.am.learning.spring.springpetclinic.model.Pet;
 import i.am.learning.spring.springpetclinic.services.OwnerService;
 import i.am.learning.spring.springpetclinic.services.PetService;
 import i.am.learning.spring.springpetclinic.services.PetTypeService;
@@ -11,14 +12,13 @@ import java.util.Set;
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerService {
 
+    private final PetTypeService petTypeService;
+    private final PetService petService;
+
     public OwnerServiceMap(PetTypeService petTypeService, PetService petService) {
         this.petTypeService = petTypeService;
         this.petService = petService;
     }
-
-    private final PetTypeService petTypeService;
-    private final PetService petService;
-
 
     @Override
     public Set<Owner> findAll() {
@@ -32,10 +32,23 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements O
 
     @Override
     public Owner save(Owner object) {
-
         if (object != null){
             if (object.getPets() != null){
-                object.getPets();
+                object.getPets().forEach(pet -> {
+                    if (pet.getPetType()!= null){
+                        if (pet.getPetType().getId()==null){
+                            pet.setPetType(petTypeService.save(pet.getPetType()));
+                        }
+                    }
+                    else {
+                        throw new RuntimeException("Pet Type is required");
+                    }
+
+                    if (pet.getId()==null){
+                        Pet savedPet = petService.save(pet);
+                        pet.setId(savedPet.getId());
+                    }
+                });
             }
             return super.save(object);
         }else{

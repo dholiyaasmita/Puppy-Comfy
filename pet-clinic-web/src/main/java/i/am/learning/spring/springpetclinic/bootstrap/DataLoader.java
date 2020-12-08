@@ -1,6 +1,7 @@
 package i.am.learning.spring.springpetclinic.bootstrap;
 
 import i.am.learning.spring.springpetclinic.model.Owner;
+import i.am.learning.spring.springpetclinic.model.Pet;
 import i.am.learning.spring.springpetclinic.model.PetType;
 import i.am.learning.spring.springpetclinic.model.Vet;
 import i.am.learning.spring.springpetclinic.services.OwnerService;
@@ -8,6 +9,8 @@ import i.am.learning.spring.springpetclinic.services.PetTypeService;
 import i.am.learning.spring.springpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component //Spring Bean
 public class DataLoader implements CommandLineRunner {
@@ -37,6 +40,14 @@ public class DataLoader implements CommandLineRunner {
         owner1.setAddress("123 Brunc Street");
         owner1.setCity("Mississauga");
         owner1.setTelephone("3073214532");
+
+        Pet mikyPet = new Pet();
+        mikyPet.setPetType(savedDogPetType);
+        mikyPet.setOwner(owner1);
+        mikyPet.setName("Leo");
+        mikyPet.setBirthDate(LocalDate.now());
+        owner1.getPets().add(mikyPet);
+
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
@@ -46,6 +57,13 @@ public class DataLoader implements CommandLineRunner {
         owner2.setCity("Mississauga");
         owner2.setTelephone("3087214002");
 
+        Pet nikyPet = new Pet();
+        nikyPet.setPetType(savedCatPetType);
+        nikyPet.setOwner(owner2);
+        nikyPet.setName("Suzi");
+        nikyPet.setBirthDate(LocalDate.now());
+        owner2.getPets().add(nikyPet);
+
         ownerService.save(owner2);
 
         Owner owner3 = new Owner();
@@ -54,6 +72,13 @@ public class DataLoader implements CommandLineRunner {
         owner3.setAddress("1762 Albian St.");
         owner3.setCity("Etobicoke");
         owner3.setTelephone("6473521897");
+
+        Pet nikyPet1 = new Pet();
+        nikyPet1.setPetType(savedCatPetType);
+        nikyPet1.setOwner(owner3);
+        nikyPet1.setName("Ketty");
+        nikyPet1.setBirthDate(LocalDate.now());
+        owner3.getPets().add(nikyPet1);
 
         ownerService.save(owner3);
 
